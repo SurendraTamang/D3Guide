@@ -1,0 +1,56 @@
+<!doctype html>
+<html>
+    <head>
+
+       <script src="js/d3.v3.min.js"></script>
+    </head>
+    
+    <body>
+      
+        <script>
+
+            var data=[10, 20]
+
+            var canvasWidth=500;
+            var canvasHeight=500;
+
+           
+            var canvas=d3.select("body")
+            .append("svg")
+            .attr("width", canvasWidth)
+            .attr("height", canvasHeight)
+           
+
+
+            var circle1=canvas.append("circle")
+                .attr("cx", 50)
+                .attr("cy", 100)
+                .attr("r", 25)
+                
+
+            var circle2=canvas.append("circle")
+                .attr("cx", 50)
+                .attr("cy", 200)
+                .attr("r", 25)
+
+
+// EXIT 
+            var circle3=canvas.append("circle")
+                .attr("cx", 50)
+                .attr("cy", 300)
+                .attr("r", 25)
+               
+               
+           
+
+            var circles=canvas.selectAll("circle")
+            .data(data)
+            .attr('fill', "green")
+            .exit()
+                .attr('fill', "red")
+
+                 
+                        
+        </script>
+    </body>
+</html>
