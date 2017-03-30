@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+
+       <script src="js/d3.v3.min.js"></script>
+    </head>
+    
+    <body>
+      
+        <script>
+
+            var data=[10, 20]
+
+            var canvasWidth=500;
+            var canvasHeight=500;
+
+           
+            var canvas=d3.select("body")
+            .append("svg")
+            .attr("width", canvasWidth)
+            .attr("height", canvasHeight)
+           
+
+
+            var circle1=canvas.append("circle")
+                .attr("cx", 50)
+                .attr("cy", 50)
+                .attr("r", 25)
+
+
+            circle1.transition()
+            .duration(1500)
+            .delay(2000)
+            .attr("cx", 150)
+            .each("end", function(){d3.select(this).attr("fill", "red");})
+            .transition()
+            .attr("cy", 150)
+                
+               
+               
+           
+
+       
+
+                 
+                        
+        </script>
+    </body>
+</html>
