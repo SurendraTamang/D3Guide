@@ -8,9 +8,9 @@
     <body>
       
         <script>
-// Run python -m http.server:8000 and then the file works
-            var data=d3.json("mydata.json", function(data){
-
+// Run python -m http.server 8000 and then the file works
+            // var data=d3.json("mydata.json", function(data){
+var data=d3.csv("mydata.csv", function(data){
             var canvasWidth=500;
             var canvasHeight=500;
 
