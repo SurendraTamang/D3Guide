@@ -1,0 +1,61 @@
+<!doctype html>
+<html>
+    <head>
+
+       <script src="js/d3.v3.min.js"></script>
+    </head>
+    
+    <body>
+      
+        <script>
+// Run python -m http.server:8000 and then the file works
+            var data=d3.json("mydata.json", function(data){
+
+            var canvasWidth=500;
+            var canvasHeight=500;
+
+            var widthScale=d3.scale.linear()
+            .domain([0, 45])
+            .range([0, canvasHeight])
+
+            var colorScale=d3.scale.linear()
+            .domain([0, 45])
+            .range(["blue", "red"])
+
+
+            var canvas=d3.select("body")
+            .append("svg")
+            .attr("width", canvasWidth)
+            .attr("height", canvasHeight)
+
+             var bars=canvas.selectAll("rect")
+            .data(data)
+            .enter()
+                .append("rect")
+                .attr("width", function(d){return widthScale(d.age);})
+                .attr("height", 30)
+                .attr("y", function(d, i){return i*40;})
+                .attr('fill', function(d){return colorScale(d.age)})
+
+
+
+                var texts=canvas.selectAll("text")
+            .data(data)
+            .enter()
+                .append("text")
+                .attr("y", function(d, i){return i*40+20;})
+                .text(function(d){return d.name;})
+
+            })
+
+            
+           
+           
+           
+
+           
+
+                        
+        </script>
+    </body>
+</html>
