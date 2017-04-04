@@ -1,0 +1,49 @@
+<!doctype html>
+<html>
+    <head>
+
+       <script src="js/d3.v3.min.js"></script>
+    </head>
+    
+    <body>
+      
+        <script>
+// Run python -m http.server 8000 and then the file works
+            // var data=d3.json("mydata.json", function(data){
+
+           ;
+
+
+var data=d3.json("lineData.json", function(data){
+            var canvasWidth=500;
+            var canvasHeight=500;
+
+
+              var canvas=d3.select("body")
+            .append("svg")
+            .attr("width", canvasWidth)
+            .attr("height", canvasHeight)
+
+
+             var group=canvas.append("g")
+           .attr("transform", "translate(100,100)")
+
+           var line=d3.svg.line()
+           .x(function(d){return d.x;})
+           .y(function(d){return d.y;})
+           
+
+           group.selectAll("path")
+           .data([data])
+           .enter()
+                .append("path")
+                .attr("d", line)
+                .attr("fill", "none")
+                .attr("stroke", "red")
+                .attr("stroke-width", 10)
+
+            })
+                       
+        </script>
+    </body>
+</html>
